@@ -15,7 +15,7 @@ namespace LibFilmes.API.Service
             this.repository = repository;
         }
 
-        public dynamic cadastrarFilme(Filme obj)
+        public Filme cadastrarFilme(Filme obj)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace LibFilmes.API.Service
             }
         }
 
-        public List<dynamic> getFilmes()
+        public List<Filme> getFilmes()
         {
             try
             {
@@ -40,6 +40,78 @@ namespace LibFilmes.API.Service
             {
                 
                 throw new Exception(e.Message);
+            }
+        }
+        public List<Roteiro> getRoteiros(){
+            try{
+                var obj = repository.getRoteiros();
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public Roteiro cadastrarRoteiro(string nome){
+            try{
+                var obj = repository.cadastrarRoteiro(nome);
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public List<Diretor> getDiretores(){
+            try{
+                var obj = repository.getDiretores();
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public Diretor cadastrarDiretor(string nome){
+            try{
+                var obj = repository.cadastrarDiretor(nome);
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public List<Produtora> getProdutoras(){
+            try{
+                var obj = repository.getProdutoras();
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public Produtora cadastrarProdutora(string nome){
+            try{
+                var obj = repository.cadastrarProdutora(nome);
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public List<Genero> getGeneros(){
+            try{
+                var obj = repository.getGeneros();
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public Genero cadastrarGenero(string nome){
+            try{
+                var obj = repository.cadastrarGenero(nome);
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
+            }
+        }
+        public List<ClassificacaoIndicativa> GetClassificacao(){
+            try{
+                var obj = repository.GetClassificacao();
+                return obj;
+            }catch(Exception e){
+                throw new Exception("Erro: " + e.Message);
             }
         }
     }

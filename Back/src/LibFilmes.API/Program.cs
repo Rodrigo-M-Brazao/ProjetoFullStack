@@ -11,11 +11,9 @@ builder.Services.AddControllers();
 
 // Injeção de dependencia Services
 builder.Services.AddTransient<IFilmesService, FilmesService>();
-builder.Services.AddTransient<IGeneroService, GeneroService>();
 
 //Injeção de dependencia Repository
 builder.Services.AddTransient<IFilmesRepository, FilmesRepository>();
-builder.Services.AddTransient<IGeneroRepository, GeneroRepository>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

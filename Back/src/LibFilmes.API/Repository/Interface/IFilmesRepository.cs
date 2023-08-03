@@ -8,7 +8,16 @@ namespace LibFilmes.API.Repository.Interface
 {
     public interface IFilmesRepository
     {
-        List<dynamic> getFilmes();
-        dynamic cadastrarFilme(Filme filme);
+        List<Filme> getFilmes();
+        Filme cadastrarFilme(Filme filme);
+        List<Roteiro> getRoteiros();
+        Roteiro cadastrarRoteiro(string nome);
+        List<Diretor> getDiretores();
+        Diretor cadastrarDiretor(string nome);
+        List<Produtora> getProdutoras();
+        Produtora cadastrarProdutora(string nome);
+        List<Genero> getGeneros();
+        Genero cadastrarGenero(string nome);
+        List<ClassificacaoIndicativa> GetClassificacao();
     }
 }

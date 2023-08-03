@@ -40,5 +40,77 @@ namespace LibFilmes.API.Controllers
             }
             
         }
+        [HttpGet]
+        [Route("GetRoteiro")]
+        public ActionResult GetRoteiros()
+        {
+            try{
+                var roteiros = service.getRoteiros();
+                return Ok(roteiros);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpPost]
+        [Route("CadastrarRoteiro")]
+        public ActionResult CadastrarRoteiros(string nome)
+        {
+            try{
+                var roteiro = service.cadastrarRoteiro(nome);
+                return Ok(roteiro);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpGet]
+        [Route("GetDiretores")]
+        public ActionResult GetDiretores()
+        {
+            try{
+                var diretores = service.getDiretores();
+                return Ok(diretores);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpPost]
+        [Route("CadastrarDiretor")]
+        public ActionResult CadastrarDiretor(string nome)
+        {
+            try{
+                var diretor = service.cadastrarDiretor(nome);
+                return Ok(diretor);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpGet]
+        [Route("GetGenero")]
+        public ActionResult GetGeneros()
+        {
+            try{
+                var generos = service.getGeneros();
+                return Ok(generos);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpPost]
+        [Route("CadastrarGenero")]
+        public ActionResult CadastrarGeneros(string obj)
+        {
+            try{
+                var genero = service.cadastrarGenero(obj);
+                return Ok(genero);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
     }
 }
