@@ -12,19 +12,53 @@ namespace LibFilmes.API.Repository
     {
         
 
-        public Filme cadastrarFilme(Filme filme)
+        public dynamic cadastrarFilme(Filme filme)
         {
             string query =  "INSERT INTO bancoprojetos.filmes(titulo, genero_id, diretor_id, roteiro_id, poster_url, produtora_id, data_lancamento, sinopse, classificacao_id, duracao) " + 
                            $"VALUES ('{filme.titulo}', {filme.genero_id}, {filme.diretor_id}, {filme.roteiro_id}, '{filme.poster_url}', {filme.produtora_id}, '{filme.data_lancamento}', '{filme.sinopse}', {filme.classificacao_id}, '{filme.duracao}')";
             ConexaoBase.Execute(query);
-            string retorno = "SELECT * FROM  bancoprojetos.filmes WHERE id = LAST_INSERT_ID();";
-            return ConexaoBase.Query<Filme>(retorno).FirstOrDefault();
+            string retorno = "SELECT " +
+                            "    f.titulo," +
+                            "    f.duracao," +
+                            "    g.nome AS genero," +
+                            "    d.nome AS diretor," +
+                            "    r.nome AS roteiro," +
+                            "    p.nome AS produtora," +
+                            "    f.poster_url," +
+                            "    f.data_lancamento," +
+                            "    f.sinopse," +
+                            "    ci.nome AS classificacao_indicativa " +
+                            "FROM bancoprojetos.filmes f " +
+                            "INNER JOIN bancoprojetos.genero g ON f.genero_id = g.id " +
+                            "INNER JOIN bancoprojetos.diretor d ON f.diretor_id = d.id " +
+                            "INNER JOIN bancoprojetos.roteiro r ON f.roteiro_id = r.id " +
+                            "INNER JOIN bancoprojetos.produtora p ON f.produtora_id = p.id " +
+                            "INNER JOIN bancoprojetos.classificacao_indicativa ci " + 
+                            "ON f.classificacao_id = ci.id WHERE f.id = LAST_INSERT_ID();";
+            return ConexaoBase.Query<dynamic>(retorno).FirstOrDefault();
         }
         
-        public List<Filme> getFilmes()
+        public List<dynamic> getFilmes()
         {
-            string query = "SELECT * FROM bancoprojetos.filmes";
-            return ConexaoBase.Query<Filme>(query).ToList();
+            string query = "SELECT " +
+                            "    f.titulo," +
+                            "    f.duracao," +
+                            "    g.nome AS genero," +
+                            "    d.nome AS diretor," +
+                            "    r.nome AS roteiro," +
+                            "    p.nome AS produtora," +
+                            "    f.poster_url," +
+                            "    f.data_lancamento," +
+                            "    f.sinopse," +
+                            "    ci.nome AS classificacao_indicativa " +
+                            "FROM bancoprojetos.filmes f " +
+                            "INNER JOIN bancoprojetos.genero g ON f.genero_id = g.id " +
+                            "INNER JOIN bancoprojetos.diretor d ON f.diretor_id = d.id " +
+                            "INNER JOIN bancoprojetos.roteiro r ON f.roteiro_id = r.id " +
+                            "INNER JOIN bancoprojetos.produtora p ON f.produtora_id = p.id " +
+                            "INNER JOIN bancoprojetos.classificacao_indicativa ci " + 
+                            "ON f.classificacao_id = ci.id;";
+            return ConexaoBase.Query<dynamic>(query).ToList();
         }
 
         public List<Roteiro> getRoteiros()

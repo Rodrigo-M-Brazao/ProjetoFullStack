@@ -8,8 +8,8 @@ namespace LibFilmes.API.Service.Interface
 {
     public interface IFilmesService
     {
-        List<Filme> getFilmes();
-        Filme cadastrarFilme(Filme filme);
+        List<dynamic> getFilmes();
+        dynamic cadastrarFilme(Filme filme);
 
         List<Roteiro> getRoteiros();
         Roteiro cadastrarRoteiro(string nome);

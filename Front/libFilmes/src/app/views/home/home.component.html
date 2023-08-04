@@ -1,0 +1,23 @@
+<div class="nav-bar">
+  <button mat-raised-button class="menu" color="primary">Inicio</button>
+  <button mat-raised-button class="menu" color="primary" [matMenuTriggerFor]="belowMenu">Filmes</button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item>Adicionar</button>
+    <button mat-menu-item>Ver catálogo</button>
+  </mat-menu>
+  <button mat-raised-button class="menu" color="primary">Sobre</button>
+</div>
+<!-- <button mat-raised-button color="primary"></button> -->
+<ul *ngFor ="let reg of filmes" class="container-filme">
+  <img [src]="reg.poster_url" alt="">
+  <div class="card">
+    <li><h1>{{reg.titulo}}</h1></li>
+    <li><h3>Gênero: {{reg.genero}}</h3></li>
+    <li><h4>Diretor: {{reg.diretor}}</h4></li>
+    <li><h4>Roteiro: {{reg.roteiro}}</h4></li>
+  </div>
+  <li class="sinopse">
+    <span><b>Sinopse</b></span>
+    <p>{{reg.sinopse}}</p>
+  </li>
+</ul>

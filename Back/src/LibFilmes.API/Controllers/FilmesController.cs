@@ -17,7 +17,7 @@ namespace LibFilmes.API.Controllers
             this.service = service;
         }
         [HttpGet]
-        [Route("GetFilme")]
+        [Route("GetFilmes")]
         public ActionResult GetFilmes()
         {
             try{
@@ -83,6 +83,30 @@ namespace LibFilmes.API.Controllers
             try{
                 var diretor = service.cadastrarDiretor(nome);
                 return Ok(diretor);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpGet]
+        [Route("GetProdutoras")]
+        public ActionResult GetProdutoras()
+        {
+            try{
+                var produtoras = service.getProdutoras();
+                return Ok(produtoras);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
+        [HttpPost]
+        [Route("CadastrarProdutora")]
+        public ActionResult CadastrarProdutora(string nome)
+        {
+            try{
+                var produtora = service.cadastrarProdutora(nome);
+                return Ok(produtora);
             }catch(Exception e){
                 return BadRequest(e.Message);
             }

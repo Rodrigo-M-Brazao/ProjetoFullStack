@@ -15,7 +15,7 @@ namespace LibFilmes.API.Service
             this.repository = repository;
         }
 
-        public Filme cadastrarFilme(Filme obj)
+        public dynamic cadastrarFilme(Filme obj)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace LibFilmes.API.Service
             }
         }
 
-        public List<Filme> getFilmes()
+        public List<dynamic> getFilmes()
         {
             try
             {
