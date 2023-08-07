@@ -1,0 +1,30 @@
+*{
+  color: aliceblue;
+}
+
+.menu{
+  border-radius: 0;
+  /* padding-left: 25px ;
+  padding-right: 25px ; */
+  padding: 20px 25px;
+  margin: 0 5px;
+}
+.nav-bar{
+  background-color: #532626;
+  padding-bottom: 5px;
+}
+.nav-bar > *{
+  background-color: #532626;
+}
+button.menu:first-of-type{
+  margin-left: 50px;
+}
+.form-filme{
+  margin: 30px;
+  background-color: #532626;
+  max-width: 400px;
+  padding: 30px;
+}
+mat-label {
+  color: black;
+}

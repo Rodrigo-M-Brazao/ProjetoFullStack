@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Filme } from 'src/app/models/Filme';
+
 import { FilmeService } from 'src/app/service/filme.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.listar();
-    console.log('ssadadada')
+
   }
   listar(){
     this.service.ObterFilmes().subscribe((resp: any[]) => {
