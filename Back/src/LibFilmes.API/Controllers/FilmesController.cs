@@ -136,5 +136,17 @@ namespace LibFilmes.API.Controllers
             }
             
         }
+        [HttpGet]
+        [Route("GetClassificacao")]
+        public ActionResult GetClassificacao()
+        {
+            try{
+                var classificacao = service.GetClassificacao();
+                return Ok(classificacao);
+            }catch(Exception e){
+                return BadRequest(e.Message);
+            }
+            
+        }
     }
 }

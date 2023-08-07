@@ -1,24 +1,32 @@
 <div class="nav-bar">
-  <button mat-raised-button class="menu" color="primary">Inicio</button>
-  <button mat-raised-button class="menu" color="primary" [matMenuTriggerFor]="belowMenu">Filmes</button>
+  <button mat-flat-button class="menu" color="primary">Inicio</button>
+  <button mat-flat-button class="menu" color="primary" [matMenuTriggerFor]="belowMenu">Filmes</button>
   <mat-menu #belowMenu="matMenu" yPosition="below">
     <button mat-menu-item>Adicionar</button>
     <button mat-menu-item>Ver catálogo</button>
   </mat-menu>
-  <button mat-raised-button class="menu" color="primary">Sobre</button>
+  <button mat-flat-button class="menu" color="primary">Sobre</button>
 </div>
 <div class="form-filme">
-  <mat-form-field>
+  <mat-form-field class="titulo">
     <mat-label>Título</mat-label>
-    <input matInput>
+    <input matInput required [(ngModel)] = 'filmeNome'>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Data de lançamento</mat-label>
-    <input matInput>
+    <input matInput required [(ngModel)] = 'dataLancamento'>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Duração</mat-label>
-    <input matInput>
+    <input matInput required [(ngModel)] = 'duracao'>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Poster</mat-label>
+    <input matInput required [(ngModel)] = 'posterUrl'>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sinopse</mat-label>
+    <textarea matInput required [(ngModel)] = 'sinopse'></textarea>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Diretor</mat-label>
@@ -31,11 +39,63 @@
       </mat-select>
     </div>
     <div *ngIf="diretorNome == 2">
-      <input matInput>
+      <input matInput required>
     </div>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Roteirista</mat-label>
-    <input matInput>
+    <div *ngIf="roteiroNome != 2">
+      <mat-select required (valueChange)="teste()" [(ngModel)] = 'roteiroNome'>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let roteiro of roteiros" [value]="roteiro.id" >
+          {{roteiro.nome}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div *ngIf="roteiroNome == 2">
+      <input matInput required>
+    </div>
   </mat-form-field>
+  <mat-form-field>
+    <mat-label>Produtora</mat-label>
+    <div *ngIf="produtoraNome != 2">
+      <mat-select required (valueChange)="teste()" [(ngModel)] = 'produtoraNome'>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let produtora of produtoras" [value]="produtora.id" >
+          {{produtora.nome}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div *ngIf="produtoraNome == 2">
+      <input matInput required>
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Gênero</mat-label>
+    <div *ngIf="generoNome != 7">
+      <mat-select required (valueChange)="teste()" [(ngModel)] = 'generoNome'>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let genero of generos" [value]="genero.id" >
+          {{genero.nome}}
+        </mat-option>
+      </mat-select>
+    </div>
+    <div *ngIf="generoNome == 7">
+      <input matInput required>
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Classificação Indicativa</mat-label>
+    <mat-select required (valueChange)="teste()" [(ngModel)] = 'classificacaoIndicativa'>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let reg of classificacoesIndicativa" [value]="reg.id" >
+        {{reg.nome}}
+      </mat-option>
+    </mat-select>
+
+  </mat-form-field>
+  <div class="cadastro">
+    <button mat-raised-button (click)="cadastro()">Cadastrar</button>
+  </div>
+
 </div>

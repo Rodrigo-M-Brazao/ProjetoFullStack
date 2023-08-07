@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassificacaoIndicativa } from 'src/app/models/ClassificacaoIndicativa';
 import { Diretor } from 'src/app/models/Diretor';
 import { Filme } from 'src/app/models/Filme';
 import { FilmeCadastrar } from 'src/app/models/FilmeCadastro';
@@ -19,20 +20,36 @@ export class CadastroFilmeComponent implements OnInit {
   roteiros? : Roteiro[];
   diretores? : Diretor[];
   produtoras? : Produtora[];
+  classificacoesIndicativa? : ClassificacaoIndicativa[];
+  filmeNome = '';
+  duracao = '';
+  dataLancamento = '';
   diretorNome =  0;
-
+  roteiroNome =  0;
+  generoNome =  0;
+  produtoraNome =  0;
+  classificacaoIndicativa = 0;
+  sinopse = '';
+  posterUrl = '';
   constructor(private service : FilmeService) {
 
   }
   ngOnInit(): void {
-    this.cadastro();
     this.listar();
   }
 
   cadastro(){
-    this.service.CadastrarFilme(this.filme).subscribe((resp: Filme) => {
-      // this.filme = resp;
-      // console.log(resp);
+    this.filme.titulo = this.filmeNome;
+    this.filme.duracao = this.duracao;
+    this.filme.genero_id = this.generoNome;
+    this.filme.diretor_id = this.diretorNome;
+    this.filme.roteiro_id = this.roteiroNome;
+    this.filme.poster_url = this.posterUrl;
+    this.filme.produtora_id = this.produtoraNome;
+    this.filme.data_lancamento = this.dataLancamento;
+    this.filme.sinopse = this.sinopse;
+    this.filme.classificacao_id = this.classificacaoIndicativa;
+    this.service.CadastrarFilme(this.filme).subscribe((resp: FilmeCadastrar) => {
     });
   }
   listar(){
@@ -47,6 +64,9 @@ export class CadastroFilmeComponent implements OnInit {
     });
     this.service.ObterDiretores().subscribe((resp: Diretor[]) => {
       this.diretores = resp;
+    });
+    this.service.ObterClassificacao().subscribe((resp: ClassificacaoIndicativa[]) => {
+      this.classificacoesIndicativa = resp;
     });
   }
   teste(){

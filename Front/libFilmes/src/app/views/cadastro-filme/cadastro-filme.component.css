@@ -22,9 +22,21 @@ button.menu:first-of-type{
 .form-filme{
   margin: 30px;
   background-color: #532626;
-  max-width: 400px;
+  max-width: 650px;
   padding: 30px;
+}
+.form-filme > *{
+  margin-left: 70px;
+
+}
+.titulo{
+  margin-top: 10px;
 }
 mat-label {
   color: black;
+}
+.cadastro{
+ display: flex;
+ align-items: center;
+ max-width: 100%;
 }

@@ -7,6 +7,7 @@ import { Genero } from '../models/Genero';
 import { Produtora } from '../models/Produtora';
 import { Roteiro } from '../models/Roteiro';
 import { Diretor } from '../models/Diretor';
+import { ClassificacaoIndicativa } from '../models/ClassificacaoIndicativa';
 
 
 
@@ -38,5 +39,7 @@ export class FilmeService {
   ObterDiretores(): Observable<Diretor[]> {
     return this.http.get<Diretor[]>(`${this.url}/api/Filmes/GetDiretores`);
   }
-
+  ObterClassificacao(): Observable<ClassificacaoIndicativa[]> {
+    return this.http.get<ClassificacaoIndicativa[]>(`${this.url}/api/Filmes/GetClassificacao`);
+  }
 }
