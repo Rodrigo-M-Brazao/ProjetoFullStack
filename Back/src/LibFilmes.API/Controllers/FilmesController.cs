@@ -53,7 +53,7 @@ namespace LibFilmes.API.Controllers
             
         }
         [HttpPost]
-        [Route("CadastrarRoteiro")]
+        [Route("CadastrarRoteiro/{nome}")]
         public ActionResult CadastrarRoteiros(string nome)
         {
             try{
@@ -77,7 +77,7 @@ namespace LibFilmes.API.Controllers
             
         }
         [HttpPost]
-        [Route("CadastrarDiretor")]
+        [Route("CadastrarDiretor/{nome}")]
         public ActionResult CadastrarDiretor(string nome)
         {
             try{
@@ -101,7 +101,7 @@ namespace LibFilmes.API.Controllers
             
         }
         [HttpPost]
-        [Route("CadastrarProdutora")]
+        [Route("CadastrarProdutora/{nome}")]
         public ActionResult CadastrarProdutora(string nome)
         {
             try{
@@ -125,11 +125,11 @@ namespace LibFilmes.API.Controllers
             
         }
         [HttpPost]
-        [Route("CadastrarGenero")]
-        public ActionResult CadastrarGeneros(string obj)
+        [Route("CadastrarGenero/{nome}")]
+        public ActionResult CadastrarGeneros(string nome)
         {
             try{
-                var genero = service.cadastrarGenero(obj);
+                var genero = service.cadastrarGenero(nome);
                 return Ok(genero);
             }catch(Exception e){
                 return BadRequest(e.Message);

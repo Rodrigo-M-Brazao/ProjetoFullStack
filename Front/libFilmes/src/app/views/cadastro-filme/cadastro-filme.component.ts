@@ -24,13 +24,17 @@ export class CadastroFilmeComponent implements OnInit {
   filmeNome = '';
   duracao = '';
   dataLancamento = '';
-  diretorNome =  0;
-  roteiroNome =  0;
-  generoNome =  0;
-  produtoraNome =  0;
+  diretor =  0;
+  roteiro =  0;
+  genero =  0;
+  produtora =  0;
   classificacaoIndicativa = 0;
   sinopse = '';
   posterUrl = '';
+  diretorNome =  '';
+  roteiroNome =  '';
+  generoNome =  '';
+  produtoraNome =  '';
   constructor(private service : FilmeService) {
 
   }
@@ -41,14 +45,11 @@ export class CadastroFilmeComponent implements OnInit {
   cadastro(){
     this.filme.titulo = this.filmeNome;
     this.filme.duracao = this.duracao;
-    this.filme.genero_id = this.generoNome;
-    this.filme.diretor_id = this.diretorNome;
-    this.filme.roteiro_id = this.roteiroNome;
     this.filme.poster_url = this.posterUrl;
-    this.filme.produtora_id = this.produtoraNome;
     this.filme.data_lancamento = this.dataLancamento;
     this.filme.sinopse = this.sinopse;
     this.filme.classificacao_id = this.classificacaoIndicativa;
+
     this.service.CadastrarFilme(this.filme).subscribe((resp: FilmeCadastrar) => {
     });
   }
@@ -69,7 +70,39 @@ export class CadastroFilmeComponent implements OnInit {
       this.classificacoesIndicativa = resp;
     });
   }
-  teste(){
-    console.log(this.diretorNome);
+  cadastroFilme(){
+    if(this.generoNome != ''){
+      this.service.CadastrarGenero(this.generoNome).subscribe((resp: any) => {
+        this.filme.genero_id = resp.id;
+        console.log(this.filme.genero_id, 'this.filme.genero_id');
+      });
+      this.filme.genero_id = this.genero;
+      console.log(this.filme.genero_id, 'this.filme.genero_id 2');
+    }
+    if(this.produtoraNome != ''){
+      this.service.CadastrarProdutora(this.produtoraNome).subscribe((resp: any) => {
+        this.filme.produtora_id = resp.id;
+        console.log(this.filme.produtora_id, 'this.filme.produtora_id');
+      });
+      this.filme.produtora_id = this.produtora;
+      console.log(this.filme.produtora_id, 'this.filme.produtora_id 2');
+    }
+    if(this.diretorNome != ''){
+      this.service.CadastrarDiretor(this.diretorNome).subscribe((resp: any) => {
+        this.filme.diretor_id = resp.id;
+        console.log(this.filme.diretor_id, 'this.filme.diretor_id');
+      });
+      this.filme.diretor_id = this.diretor;
+      console.log(this.filme.diretor_id, 'this.filme.diretor_id 2');
+    }
+    if(this.roteiroNome != ''){
+      this.service.CadastrarRoteiro(this.roteiroNome).subscribe((resp: any) => {
+        this.filme.roteiro_id = resp.id;
+        console.log(this.filme.roteiro_id, 'this.filme.roteiro_id');
+      });
+      this.filme.roteiro_id = this.roteiro;
+      console.log(this.filme.roteiro_id, 'this.filme.roteiro_id 2');
+    }
+    this.cadastro();
   }
 }
