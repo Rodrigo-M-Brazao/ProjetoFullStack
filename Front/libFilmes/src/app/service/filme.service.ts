@@ -11,6 +11,7 @@ import { ClassificacaoIndicativa } from '../models/ClassificacaoIndicativa';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,4 +55,6 @@ export class FilmeService {
   ObterClassificacao(): Observable<ClassificacaoIndicativa[]> {
     return this.http.get<ClassificacaoIndicativa[]>(`${this.url}/api/Filmes/GetClassificacao`);
   }
+
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoriaService } from 'src/app/service/categoria.service';
 
 import { FilmeService } from 'src/app/service/filme.service';
 
@@ -9,8 +10,8 @@ import { FilmeService } from 'src/app/service/filme.service';
 })
 export class HomeComponent implements OnInit {
   filmes? : any[];
-
-  constructor(private service : FilmeService) {
+  categorias? : any[];
+  constructor(private service : FilmeService, private serviceCategoria : CategoriaService) {
 
   }
   ngOnInit(): void {
@@ -20,6 +21,10 @@ export class HomeComponent implements OnInit {
   listar(){
     this.service.ObterFilmes().subscribe((resp: any[]) => {
       this.filmes = resp;
+      console.log(resp);
+    });
+    this.serviceCategoria.ObterCategorias().subscribe((resp: any[]) => {
+      this.categorias = resp;
       console.log(resp);
     });
   }

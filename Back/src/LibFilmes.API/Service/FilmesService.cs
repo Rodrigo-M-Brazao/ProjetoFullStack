@@ -19,9 +19,6 @@ namespace LibFilmes.API.Service
         {
             try
             {
-                if(obj.diretor_id == 2){
-                    //update to lastindex
-                }
                 var filme = repository.cadastrarFilme(obj);
                 return filme;
             }
@@ -117,5 +114,6 @@ namespace LibFilmes.API.Service
                 throw new Exception("Erro: " + e.Message);
             }
         }
+        
     }
 }

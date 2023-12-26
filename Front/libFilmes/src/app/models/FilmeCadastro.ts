@@ -1,5 +1,6 @@
 
 export class FilmeCadastrar {
+  id?: number;
   titulo?: string;
   duracao?: string;
   genero_id?: number;

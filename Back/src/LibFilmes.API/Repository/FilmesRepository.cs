@@ -11,13 +11,13 @@ namespace LibFilmes.API.Repository
     public class FilmesRepository : Conexao, IFilmesRepository
     {
         
-
         public dynamic cadastrarFilme(Filme filme)
         {
             string query =  "INSERT INTO bancoprojetos.filmes(titulo, genero_id, diretor_id, roteiro_id, poster_url, produtora_id, data_lancamento, sinopse, classificacao_id, duracao) " + 
                            $"VALUES ('{filme.titulo}', {filme.genero_id}, {filme.diretor_id}, {filme.roteiro_id}, '{filme.poster_url}', {filme.produtora_id}, '{filme.data_lancamento}', '{filme.sinopse}', {filme.classificacao_id}, '{filme.duracao}')";
             ConexaoBase.Execute(query);
             string retorno = "SELECT " +
+                            "    f.id," +
                             "    f.titulo," +
                             "    f.duracao," +
                             "    g.nome AS genero," +
@@ -120,6 +120,5 @@ namespace LibFilmes.API.Repository
             string query = "SELECT * FROM bancoprojetos.classificacao_indicativa";
             return ConexaoBase.Query<ClassificacaoIndicativa>(query).ToList();
         }
-        
     }
 }

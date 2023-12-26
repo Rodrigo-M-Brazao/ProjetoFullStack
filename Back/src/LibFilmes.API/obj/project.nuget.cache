@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "8j/1ByxFy3qnhK3IK+5Kf0qcb1jnCrnCLWe+IiKuXcUTsoFB4pRtxKSQMhW0bf77iYH6lvoECHDPaBxJdVhEfw==",
+  "dgSpecHash": "Wu7SA3BJvUuJp/cwRilmtXJBkhjx7H+E6TIcndaTGqCWcdhr2jEwnzlUYXlndeTiG1lpCqQlqAGNRX3icH2ppg==",
   "success": true,
   "projectFilePath": "C:\\Users\\rodri\\OneDrive\\Área de Trabalho\\ProjetoFullStack\\Back\\src\\LibFilmes.API\\LibFilmes.API.csproj",
   "expectedPackageFiles": [
@@ -67,7 +67,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'Microsoft.AspNet.Cors 5.2.9' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "Package 'Microsoft.AspNet.Cors 5.2.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Cors",
       "targetGraphs": [
         "net7.0"

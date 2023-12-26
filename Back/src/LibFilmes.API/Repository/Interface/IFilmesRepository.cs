@@ -19,5 +19,6 @@ namespace LibFilmes.API.Repository.Interface
         List<Genero> getGeneros();
         Genero cadastrarGenero(string nome);
         List<ClassificacaoIndicativa> GetClassificacao();
+
     }
 }

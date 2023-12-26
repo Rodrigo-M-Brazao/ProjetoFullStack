@@ -1,42 +1,24 @@
-<div class="nav-bar">
-  <button mat-raised-button class="menu" color="primary">Inicio</button>
-  <button mat-raised-button class="menu" color="primary" [matMenuTriggerFor]="belowMenu">Filmes</button>
-  <mat-menu #belowMenu="matMenu" yPosition="below">
-    <button mat-menu-item>Adicionar</button>
-    <button mat-menu-item>Ver catálogo</button>
-  </mat-menu>
-  <button mat-raised-button class="menu" color="primary">Sobre</button>
-</div>
-<!-- <button mat-raised-button color="primary"></button> -->
-<!-- <div *ngFor ="let reg of filmes" class="container-filme">
-  <img [src]="reg.poster_url" alt="">
-  <div class="card">
-    <span><h1>{{reg.titulo}}</h1></span>
-    <span><h3>Gênero: {{reg.genero}}</h3></span>
-    <span><h4>Diretor: {{reg.diretor}}</h4></span>
-    <span><h4>Roteiro: {{reg.roteiro}}</h4></span>
+<!-- <div class="container">
+  <div *ngFor ="let reg of filmes" class="container-filme">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title class="title">{{reg.titulo}}</mat-card-title>
+          <mat-card-subtitle class="subtitle">Duração: {{reg.duracao}}</mat-card-subtitle>
+          <mat-card-subtitle class="subtitle">Gênero: {{reg.genero}}</mat-card-subtitle>
+          <mat-card-subtitle class="subtitle">Diretor: {{reg.diretor}}</mat-card-subtitle>
+          <mat-card-subtitle class="subtitle">Roteiro: {{reg.roteiro}}</mat-card-subtitle>
+          <mat-card-subtitle class="subtitle">Produtora: {{reg.produtora}}</mat-card-subtitle>
+          <mat-card-subtitle class="subtitle">Classificação Indicativa: {{reg.classificacao_indicativa}}</mat-card-subtitle>
+          <img mat-card-xl-image src="{{reg.poster_url}}" class="img-poster">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content class="sinopse">
+        <p><b>Sinopse</b></p>{{reg.sinopse}}
+      </mat-card-content>
+    </mat-card>
   </div>
-  <span class="sinopse">
-    <span><b>Sinopse</b></span>
-    <p>{{reg.sinopse}}</p>
-  </span>
 </div> -->
-<div *ngFor ="let reg of filmes" class="container-filme">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <mat-card-title class="title">{{reg.titulo}}</mat-card-title>
-        <mat-card-subtitle class="subtitle">Duração: {{reg.duracao}}</mat-card-subtitle>
-        <mat-card-subtitle class="subtitle">Gênero: {{reg.genero}}</mat-card-subtitle>
-        <mat-card-subtitle class="subtitle">Diretor: {{reg.diretor}}</mat-card-subtitle>
-        <mat-card-subtitle class="subtitle">Roteiro: {{reg.roteiro}}</mat-card-subtitle>
-        <mat-card-subtitle class="subtitle">Produtora: {{reg.produtora}}</mat-card-subtitle>
-        <mat-card-subtitle class="subtitle">Classificação Indicativa: {{reg.classificacao_indicativa}}</mat-card-subtitle>
-        <img mat-card-xl-image src="{{reg.poster_url}}" class="img-poster">
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content class="sinopse">
-      <p><b>Sinopse</b></p>{{reg.sinopse}}
-    </mat-card-content>
-  </mat-card>
+<div *ngFor="let categoria of categorias">
+  <p>{{categoria.CATEGORIA_NOME}}</p>
 </div>

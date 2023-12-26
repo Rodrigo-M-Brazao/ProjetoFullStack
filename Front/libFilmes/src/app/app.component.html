@@ -1,2 +1,12 @@
-<!-- <app-home></app-home> -->
-<app-cadastro-filme></app-cadastro-filme>
+<div class="nav-bar">
+  <button mat-flat-button class="menu" color="primary"><a href="/" class="btn-link">Inicio</a></button>
+  <button mat-flat-button class="menu" color="primary" [matMenuTriggerFor]="belowMenu">Filmes</button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item><a href="/cadastro-filme">Adicionar</a></button>
+    <button mat-menu-item><a href="/">Ver catálogo</a></button>
+  </mat-menu>
+  <button mat-flat-button class="menu" color="primary"><a href="/sobre" class="btn-link">Sobre</a></button>
+</div>
+<router-outlet></router-outlet>
+
+
